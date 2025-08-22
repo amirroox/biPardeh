@@ -1,6 +1,6 @@
 <div style="text-align: center">
 
-[English Version](./README.md)
+[English Version](../README.md)
 
 </div>
 
@@ -20,7 +20,7 @@
 - ✅ دسته‌بندی محتوا
 - ✅ کد تمیز و قابل توسعه
 
-![image](./Screen.png)
+![image](./assets/Screen.png)
 
 ## نصب و راه‌اندازی
 

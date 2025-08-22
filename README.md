@@ -1,6 +1,6 @@
 <div style="text-align: center">
 
-[نسخه فارسی](./README_fa.md)
+[نسخه فارسی](./assets/README_fa.md)
 
 </div>
 
@@ -24,7 +24,7 @@ A simple website for informing and informing
 
 - ✅ Clean and extensible code
 
-![image](./Screen.png)
+![image](./assets/Screen.png)
 
 ## Installation and setup
 
