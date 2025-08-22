@@ -1,5 +1,7 @@
 <?php
 
+include_once __DIR__ . "/tools/generate_pdf.php";
+
 // Helper functions
 function loadPosts($category = null): array
 {
@@ -47,10 +49,8 @@ function sanitize($text): string
 
 // TODO Handle PDF generation
 if (isset($_GET['pdf'])) {
-    header('Content-Type: application/pdf');
-    header('Content-Disposition: attachment; filename="site-content.pdf"');
-
-    // Simple PDF generation (you'd need a library like TCPDF for better results)
-    echo "PDF generation would go here - need TCPDF library";
+    // header('Content-Type: application/pdf');
+    // header('Content-Disposition: attachment; filename="site-content.pdf"');
+    generateAdvancedPDF();
     exit;
 }

@@ -4,6 +4,8 @@
 $config = [
     'site_title' => 'بی پرده',
     'site_description' => 'اطلاع رسانی و آگاه سازی مردم برای ساخت کشوری آزاد و زیبا',
+    'author' => 'ایران آزاد',
+    'title' => 'Free IRAN',
     'categories' => [
         #  mkdir data/post/...
         'corruption' => 'فساد و اختلاس ها',

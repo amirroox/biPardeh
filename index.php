@@ -1,6 +1,8 @@
 <?php
 // Simple Information Website - Main File (index.php)
 // Hoping for a happy and prosperous Iran :)
+
+require_once('vendor/autoload.php');
 /**
  * @var array{
  *     site_title: string,
