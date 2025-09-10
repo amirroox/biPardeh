@@ -5,10 +5,13 @@
 }
 
 body {
-    font-family: "Vazirmatn", "Lalezar", 'Tahoma', Arial, sans-serif;
     line-height: 1.6;
     background: #f5f5f5;
     color: #333;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, button, div {
+    font-family: "Vazirmatn", "Lalezar", 'Tahoma', Arial, sans-serif;
 }
 
 .container {
@@ -203,4 +206,51 @@ footer {
     .container {
         padding: 0 10px;
     }
+}
+
+/* 🌙 Dark Mode */
+#theme-toggle {
+    margin-top: .5rem;
+    padding: .5rem;
+    border-radius: 13px;
+}
+
+body.dark {
+    background: #1e1e1e;
+    color: #ddd;
+}
+
+body.dark header {
+    background: #111;
+    color: #eee;
+}
+
+body.dark nav {
+    background: #222;
+}
+
+body.dark nav a {
+    color: #eee;
+}
+
+body.dark nav a:hover,
+body.dark nav a.active {
+    background: #e67e22;
+}
+
+body.dark .post-card,
+body.dark .single-post,
+body.dark .home-intro {
+    background: #2a2a2a;
+    color: #ddd;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+body.dark .post-title {
+    color: #f39c12;
+}
+
+body.dark footer {
+    background: #111;
+    color: #ccc;
 }

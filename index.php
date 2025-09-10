@@ -32,6 +32,7 @@ include_once "helper.php";
     <div class="container">
         <h1><?= sanitize($config['site_title']) ?></h1>
         <p><?= sanitize($config['site_description']) ?></p>
+        <button id="theme-toggle">تغییر تم 🌑</button>
     </div>
 </header>
 
@@ -152,5 +153,6 @@ include_once "helper.php";
         <p>&copy; <?= date('Y') ?> - <?= sanitize($config['site_title']) ?> | این سایت اپن‌سورس است و برای همه آزاد</p>
     </div>
 </footer>
+<script src="./assets/script.js"></script>
 </body>
 </html>
