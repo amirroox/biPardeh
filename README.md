@@ -11,18 +11,13 @@ A simple website for informing and informing
 ## Features
 
 - ✅ No need for a database (uses json files)
-
 - ✅ Fully portable and transferable
-
 - ✅ Responsive and mobile-friendly
-
 - ✅ Support for right-clicking for Persian
-
 - ✅ Ability to generate PDF (requires additional library)
-
 - ✅ Content classification
-
 - ✅ Clean and extensible code
+- ✅ Has Persian font & Jalali date
 
 ![image](./assets/Screen.png)
 
@@ -32,22 +27,34 @@ A simple website for informing and informing
 
 Place the following files in the main folder of the website:
 
-### Step 2: Create the folder structure
+### Step 2: Folder structure
 
 ```
-your-website/
-├── index.php Home page
-├── config.php Configs
-├── helper.php Helper functions
-├── style.css Styles
+BiPardeh/
+├── assets/
+│ └── README_fa.md (Persian Readme)
+│ ├── Screen.png (Screenshot)
+│ ├── style.css (Styles)
+│ └── Vazirmatn-Regular.ttf (Font)
 ├── data/
 │ └── posts/
 │ ├── corruption/ (corruption and embezzlement)
 │ ├── mismanagement/ (mismanagement)
 │ ├── solutions/ (solutions)
 │ ├── education/ (education)
-│ └── news/ (news)
-└── README.md
+│ ├── news/ (news)
+│ └── Other
+├── tools/
+│ └── create_content.php (Content Creator Tool)
+│ ├── generate_pdf.php (Complete PDF Generator with TCPDF)
+│ ├── jdf.php (library for jalali)
+│ └── textFormater.py (Text Formatter)
+├── vendor/ (composer)
+│ └── ...
+├── helper.php (Helper Functions)
+├── config.php (Configs)
+├── index.php (Home page)
+└── README.md (English Readme)
 ```
 
 ### Step 3: Add content
@@ -62,7 +69,7 @@ Place each post as a JSON file in the corresponding category folder:
 {
 "title": "Post title",
 "content": "Full text of the post...",
-"date": "2024-03-15",
+"date": "1404-06-25",
 "author": "Author name",
 "tags": ["tag1", "tag2"],
 "category": "corruption",
@@ -87,7 +94,7 @@ $config = [
 ];
 ```
 
-## Minimum server requirements
+## Minimum server or host requirements
 
 - PHP 7.4 or later
 - Write access to the folder (for uploading files)
@@ -102,7 +109,18 @@ To enable PDF generation, you need to install the TCPDF library:
 composer require tecnickcom/tcpdf
 ```
 
-Then complete the PDF code in the `index.php` file.
+### Tools
+The `create_content.php` file is used to automatically create posts. (Use to create new content)
+
+```bash
+php create_content.php
+```
+
+The `textFormater.py` file is for converting copied text to text without extra spaces. (Use this tool if you have ready text)
+
+```bash
+python textFormater.py
+```
 
 ### Backup
 
