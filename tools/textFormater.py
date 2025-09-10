@@ -1,4 +1,3 @@
-# newline escape
 import sys
 import os
 

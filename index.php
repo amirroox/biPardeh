@@ -16,7 +16,6 @@ include_once "config.php";
 include_once "helper.php";
 ?>
 
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -63,7 +62,10 @@ include_once "helper.php";
                         <span class="category-badge"><?= sanitize($config['categories'][$category]) ?></span>
                         <span class="tags-badge">تگ ها : <?= implode(', ', $post['tags']) ?> </span>
                         <div style="margin-top: 10px;direction: ltr">
-                        تاریخ: <?= sanitize($post['date']) ?>
+                                    تاریخ:
+                            <span dir="rtl">
+                                <?= sanitize_date($post['date'], True) ?>
+                            </span>
                         <?php if (isset($post['author'])): ?>
                             | نویسنده: <?= sanitize($post['author']) ?>
                         <?php endif; ?>
@@ -97,7 +99,7 @@ include_once "helper.php";
                             <h3 class="post-title"><?= sanitize($post['title']) ?></h3>
                             <div class="post-meta">
                                 <span class="category-badge"><?= sanitize($config['categories'][$post['category']]) ?></span>
-                                <?= sanitize($post['date']) ?>
+                                <span dir="rtl"><?= sanitize_date($post['date']) ?></span>
                             </div>
                             <div class="post-excerpt">
                                 <?= sanitize(substr($post['content'], 0, 200)) ?>...
@@ -131,7 +133,7 @@ include_once "helper.php";
                             <h3 class="post-title"><?= sanitize($post['title']) ?></h3>
                             <div class="post-meta">
                                 <span class="category-badge"><?= sanitize($config['categories'][$post['category']]) ?></span>
-                                <?= sanitize($post['date']) ?>
+                                <span dir="rtl"><?= sanitize_date($post['date']) ?></span>
                             </div>
                             <div class="post-excerpt">
                                 <?= sanitize(substr($post['content'], 0, 200)) ?>...

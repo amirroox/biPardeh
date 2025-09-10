@@ -5,7 +5,7 @@
 echo "=== Content Creator Tool ===\n\n";
 
 // Check if data directory exists
-$dataDir = 'data/posts';
+$dataDir = '../data/posts';
 if (!is_dir($dataDir)) {
     mkdir($dataDir, 0755, true);
     echo "Data/posts folder created.\n";
@@ -30,7 +30,8 @@ foreach ($categories as $catKey => $catName) {
 }
 
 // Interactive content creation
-function createPost() {
+function createPost(): bool
+{
     global $categories, $dataDir;
     
     echo "\n--- Create new post ---\n";

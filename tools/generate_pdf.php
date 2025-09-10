@@ -1,4 +1,6 @@
 <?php
+// PDF Generator
+
 // Complete PDF Generator with TCPDF
 // Make sure TCPDF is installed: composer require tecnickcom/tcpdf
 
@@ -9,9 +11,10 @@ class PersianPDF extends TCPDF {
     public function __construct() {
         parent::__construct();
         // Static font (Vazir)
-        $this->fontname = TCPDF_FONTS::addTTFfont(__DIR__.'/assets/Vazirmatn-Regular.ttf', 'TrueTypeUnicode', '', 96);
+        $this->fontname = TCPDF_FONTS::addTTFfont(__DIR__.'\..\assets\Vazirmatn-Regular.ttf', 'TrueTypeUnicode', '', 96);
     }
-    public function Header() {
+    public function Header(): void
+    {
         global $config;
 
         // Set font for header
@@ -29,7 +32,8 @@ class PersianPDF extends TCPDF {
         $this->Line(10, 25, $this->getPageWidth() - 10, 25);
     }
     
-    public function Footer() {
+    public function Footer(): void
+    {
         // Position at 15 mm from bottom
         $this->SetY(-15);
         
@@ -42,13 +46,15 @@ class PersianPDF extends TCPDF {
     }
     
     // Method to add Persian text with proper formatting
-    public function AddPersianText($text, $fontSize = 12, $fontStyle = '', $align = 'J') {
+    public function AddPersianText($text, $fontSize = 12, $fontStyle = '', $align = 'J'): void
+    {
         $this->SetFont('vazirmatn', $fontStyle, $fontSize);
         $this->writeHTML($text, true, false, true, false, $align);
     }
 }
 
-function generateAdvancedPDF() {
+function generateAdvancedPDF(): void
+{
     global $config;
 
     // Category names in Persian
@@ -104,7 +110,7 @@ function generateAdvancedPDF() {
             $pdf->Cell(0, 15, 'پلتفرم اطلاع‌رسانی', 0, 1, 'C');
             $pdf->Ln(20);
             $pdf->SetFont('vazirmatn', '', 12);
-            $pdf->Cell(0, 10, 'تاریخ تولید: ' . date('Y/m/d H:i'), 0, 1, 'C');
+            $pdf->Cell(0, 10, 'تاریخ تولید: ' . jdate('d F Y - H:i', time()), 0, 1, 'C');
             $pdf->Cell(0, 10, 'تعداد مطالب: ' . count($posts), 0, 1, 'C');
             
             // Add table of contents
@@ -172,7 +178,7 @@ function generateAdvancedPDF() {
                     $pdf->SetFont('vazirmatn', '', 10);
                     $pdf->SetTextColor(127, 140, 141); // Gray text
                     
-                    $metaText = 'تاریخ: ' . $post['date'];
+                    $metaText = 'تاریخ: ' . sanitize_date($post['date']);
                     if (!empty($post['author'])) {
                         $metaText .= ' | نویسنده: ' . $post['author'];
                     }
@@ -222,7 +228,7 @@ function generateAdvancedPDF() {
             $pdf->SetFont('vazirmatn', '', 12);
             $pdf->Cell(0, 8, 'تعداد کل مطالب: ' . count($posts), 0, 1, 'R');
             $pdf->Cell(0, 8, 'تعداد دسته‌بندی‌ها: ' . count($categoryCount), 0, 1, 'R');
-            $pdf->Cell(0, 8, 'تاریخ تولید فایل: ' . date('Y/m/d H:i:s'), 0, 1, 'R');
+            $pdf->Cell(0, 8, 'تاریخ تولید فایل: ' . jdate('d F Y - H:i', time()), 0, 1, 'R');
             $pdf->Ln(10);
             
             $pdf->Cell(0, 8, 'این پلتفرم برای اشتراک اطلاعات مهم و آگاه‌سازی مردم ایجاد شده است.', 0, 1, 'C');
@@ -239,6 +245,6 @@ function generateAdvancedPDF() {
         echo "<h1>خطا در تولید PDF</h1>";
         echo "<p>پیغام خطا: " . $e->getMessage() . "</p>";
         echo "<p>لطفاً مطمئن شوید که TCPDF به درستی نصب شده است.</p>";
-        echo "<p><a href='index.php'>بازگشت به سایت</a></p>";
+        echo "<p><a href='../index.php'>بازگشت به سایت</a></p>";
     }
 }
